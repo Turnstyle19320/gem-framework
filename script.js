@@ -7,7 +7,47 @@
 
   // --- Constants ---
   const STORAGE_KEY = 'gem-framework-checks';
-  const STEP_IDS = ['step0','step1','step1a','step2','step3','step4'];
+  const MIGRATION_KEY = 'gem-framework-migrated-v2';
+  const PAGE = document.body.dataset.page; // 'landing' or 'framework'
+  const STEP_IDS = ['step1','step2','step2a','step3','step4','step5'];
+
+  // ===================================================
+  // 0. One-time localStorage migration (old → new IDs)
+  // ===================================================
+  function migrateCheckboxKeys() {
+    if (localStorage.getItem(MIGRATION_KEY)) return;
+
+    const state = loadChecks();
+    if (!Object.keys(state).length) {
+      localStorage.setItem(MIGRATION_KEY, '1');
+      return;
+    }
+
+    // Map old step prefixes to new ones (highest-first to avoid collisions)
+    const migrations = [
+      ['s4-', 's5-'],
+      ['s3-', 's4-'],
+      ['s2-', 's3-'],
+      ['s1a-', 's2a-'],
+      ['s1-', 's2-'],
+      ['s0-', 's1-']
+    ];
+
+    const newState = {};
+    for (const [key, val] of Object.entries(state)) {
+      let newKey = key;
+      for (const [oldPrefix, newPrefix] of migrations) {
+        if (key.startsWith(oldPrefix)) {
+          newKey = newPrefix + key.slice(oldPrefix.length);
+          break;
+        }
+      }
+      newState[newKey] = val;
+    }
+
+    saveChecks(newState);
+    localStorage.setItem(MIGRATION_KEY, '1');
+  }
 
   // ===================================================
   // 1. Checkbox persistence (localStorage)
@@ -116,12 +156,12 @@
 
   function stepLabel(id) {
     const map = {
-      step0: 'Step 0 - Problem + Role',
-      step1: 'Step 1 - Resources',
-      step1a: 'Step 1A - Deep Research',
-      step2: 'Step 2 - Draft Prompt',
-      step3: 'Step 3 - Test the Gem',
-      step4: 'Step 4 - Iterate'
+      step1: 'Step 1 — Problem + Role',
+      step2: 'Step 2 — Resources',
+      step2a: 'Step 2A — Deep Research',
+      step3: 'Step 3 — Draft Prompt',
+      step4: 'Step 4 — Test the Gem',
+      step5: 'Step 5 — Iterate'
     };
     return map[id] || '';
   }
@@ -186,21 +226,27 @@
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
-
-    // Teaser is now a native <details> element — no JS needed for expand
   }
 
   // ===================================================
   // Init everything on DOM ready
   // ===================================================
   document.addEventListener('DOMContentLoaded', () => {
+    // Migration runs on any page (one-time)
+    migrateCheckboxKeys();
+
+    // Checkboxes work on both pages
     initCheckboxes();
-    initScrollSpy();
-    initGuidedMode();
-    initSidebarNav();
+
+    // Framework-only features
+    if (PAGE === 'framework') {
+      initScrollSpy();
+      initGuidedMode();
+      initSidebarNav();
+    }
   });
 
-  // Expose needed functions globally
+  // Expose needed functions globally (safe on both pages)
   window.expandAll = expandAll;
   window.collapseAll = collapseAll;
   window.copyPrompt = copyPrompt;

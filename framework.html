@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Gem Framework: Workshop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="framework">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <!-- ==========================================
+       ZONE 1 — Hero
+       ========================================== -->
+  <!-- Navbar -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">The Gem Framework</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="framework.html" class="active">Workshop</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="zone-hero zone-hero--framework">
+    <h1>Build Your Gem</h1>
+    <p>Follow each step, check the boxes, and walk away with a working Gem.</p>
+  </header>
+
+  <!-- ==========================================
+       Mobile progress bar (hidden on desktop)
+       ========================================== -->
+  <div class="mobile-progress">
+    <div class="progress-track"><div class="progress-fill"></div></div>
+    <div class="progress-label">Step 0 - Problem + Role</div>
+  </div>
+
+  <!-- ==========================================
+       ZONE 3 — Workshop (sidebar + content)
+       ========================================== -->
+  <main id="main-content" class="zone-workshop">
+
+    <!-- Sidebar nav (desktop only) -->
+    <nav class="sidebar-nav" aria-label="Step navigation">
+      <ul>
+        <li><a href="#step1" data-step="step1" class="active"><span class="step-dot">1</span><span class="step-label">Problem + Role</span></a></li>
+        <li><a href="#step2" data-step="step2"><span class="step-dot">2</span><span class="step-label">Resources</span></a></li>
+        <li><a href="#step2a" data-step="step2a"><span class="step-dot">2A</span><span class="step-label">Deep Research</span></a></li>
+        <li><a href="#step3" data-step="step3"><span class="step-dot">3</span><span class="step-label">Draft Prompt</span></a></li>
+        <li><a href="#step4" data-step="step4"><span class="step-dot">4</span><span class="step-label">Test the Gem</span></a></li>
+        <li><a href="#step5" data-step="step5"><span class="step-dot">5</span><span class="step-label">Iterate</span></a></li>
+      </ul>
+    </nav>
+
+    <!-- Main content area -->
+    <div class="workshop-content">
+
+      <!-- Outcome preview -->
+      <div class="outcome-preview">
+        <h3>What you'll build</h3>
+        <p>By the end of this workshop, you will have a Gem with:</p>
+        <ul>
+          <li>A clearly scoped <strong>problem</strong> and <strong>role</strong> assignment</li>
+          <li>A grounding <strong>knowledge resource</strong> (optionally AI-generated)</li>
+          <li>A multi-section <strong>prompt</strong> with phases, mandates, and guardrails</li>
+          <li>A <strong>tested Gem</strong> with real conversation data</li>
+          <li>An <strong>iteration strategy</strong> using bad-output feedback loops</li>
+        </ul>
+        <div class="time-estimate">Estimated time: 45-60 minutes. Your progress is saved automatically.</div>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <button class="btn btn-primary btn-sm" onclick="expandAll()">Expand All</button>
+        <button class="btn btn-sm" onclick="collapseAll()">Collapse All</button>
+        <button class="btn btn-sm" id="guided-toggle">Guided Mode</button>
+      </div>
+
+      <!-- Goal callout -->
+      <div class="callout callout-goal">
+        <strong>Goal:</strong> Draft and test your first Gem prompt. Don't aim for perfection on the first try - you'll iterate your way to great.
+      </div>
+
+      <!-- ===== STEP 0 ===== -->
+      <section class="step-section" id="step1">
+        <div class="step-header">
+          <div class="step-icon">
+            <svg aria-hidden="true" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          </div>
+          <div>
+            <h2>Step 1: Decide the problem + choose your role</h2>
+            <div class="step-subtitle">Match the AI's role to your own expertise level</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <p>Success starts by matching the AI's role to your own expertise. The best choice depends on whether you have a clear destination or need help finding it.</p>
+
+          <!-- Decision matrix -->
+          <div class="decision-matrix">
+            <div style="font-weight:700; font-size:14px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink); margin-bottom:12px;">Ask yourself before you prompt</div>
+            <table>
+              <caption class="sr-only">Decision matrix: Ask yourself before you prompt</caption>
+              <thead>
+                <tr>
+                  <th style="color:var(--muted);">Question</th>
+                  <th style="color:var(--brand);">Clerk</th>
+                  <th style="color:var(--brand);">Colleague</th>
+                  <th style="color:var(--blue);">Coach</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Do I know what I want?</strong></td>
+                  <td>Yes</td>
+                  <td>Somewhat</td>
+                  <td>Not yet</td>
+                </tr>
+                <tr>
+                  <td><strong>Can I evaluate the output?</strong></td>
+                  <td>Yes</td>
+                  <td>Somewhat</td>
+                  <td>Not easily</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="role-grid">
+            <div class="role-card">
+              <span class="use-case">Low Friction / Destination Known</span>
+              <h3>The Clerk</h3>
+              <p>For when you <strong>know exactly what you need</strong> and can easily judge the quality. The AI is your high-speed assistant handling tedious tasks.</p>
+              <ul>
+                <li>Transcribing meeting notes into clear summaries.</li>
+                <li>Formatting data into Markdown or CSV.</li>
+                <li>Drafting standard emails or documentation.</li>
+              </ul>
+              <div class="example-prompt"><strong>Example:</strong> "Convert these parent conference notes into a professional follow-up email. Keep it under 200 words, warm but direct."</div>
+            </div>
+            <div class="role-card">
+              <span class="use-case">Moderate Friction / Destination Fuzzy</span>
+              <h3>The Colleague</h3>
+              <p>For when you have a <strong>rough idea but need help</strong>. You and the AI brainstorm together to iterate on a concept or improve a plan.</p>
+              <ul>
+                <li>Suggesting 5 different angles for a project.</li>
+                <li>Expanding a short prompt into a detailed lesson plan.</li>
+                <li>Reviewing a draft for potential missing pieces.</li>
+              </ul>
+              <div class="example-prompt"><strong>Example:</strong> "I need to redesign my unit on fractions for 4th graders. Give me 5 different approaches with pros and cons for each."</div>
+            </div>
+            <div class="role-card highlight">
+              <span class="use-case">High Friction / Growth Focused</span>
+              <h3>The Coach</h3>
+              <p>For <strong>learning and reflection</strong>. Use this mode to provide productive friction; perfect for helping students or adult learners process new information.</p>
+              <ul>
+                <li><strong>Socratic Inquiry:</strong> Asking questions that guide a student toward an answer.</li>
+                <li><strong>Reflective Practice:</strong> Prompting a user to explain their thinking process.</li>
+                <li><strong>Sparring:</strong> Stress-testing a professional strategy with critical pushback.</li>
+              </ul>
+              <div class="example-prompt"><strong>Example:</strong> "I'm planning to drop letter grades and move to standards-based grading. Act as a resistant department chair and challenge my reasoning."</div>
+            </div>
+          </div>
+
+          <div class="checklist" style="margin-top: 24px;">
+            <div class="checklist-title">Checklist</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s1-1"></span> What problem am I trying to solve?</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s1-2"></span> Which role would help most? - Clerk / Colleague / Coach</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s1-3"></span> What would "success" look like in 30 days?</div>
+          </div>
+          <div class="callout callout-info">
+            <strong>Quick tip:</strong> If your problem is messy information, think <strong>Clerk</strong>. If your problem is option-generation and design, think <strong>Colleague</strong>. If your problem is thinking clarity and decision pressure, think <strong>Coach</strong>.
+          </div>
+
+          <div class="callout callout-example">
+            <strong>How the SBG Rubric Coach did it:</strong> The problem was "teachers create rubrics that inadvertently grade behavior instead of mastery." The role chosen was <strong>Coach</strong> -- because the goal was productive friction and reflection, not just producing a fixed document.
+            <a href="index.html#showcase">See the full example.</a>
+          </div>
+
+          <!-- Guided nav -->
+          <div class="guided-nav">
+            <button class="btn btn-sm guided-prev" onclick="guidedPrev()" disabled>Previous</button>
+            <span class="guided-counter"></span>
+            <button class="btn btn-primary btn-sm guided-next" onclick="guidedNext()">Next</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== STEP 1 ===== -->
+      <section class="step-section" id="step2">
+        <div class="step-header">
+          <div class="step-icon">
+            <svg aria-hidden="true" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div>
+            <h2>Step 2: Identify the resources your Gem will need</h2>
+            <div class="step-subtitle">Gather or create the knowledge your Gem depends on</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="checklist">
+            <div class="checklist-title">Checklist</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s2-1"></span> What does my Gem need to "know" consistently? (if anything)</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s2-2"></span> Do I already have it? (articles, memos, frameworks, policies, excerpts)</div>
+            <div class="checklist-indent">
+              <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s2-3"></span> If yes: gather key resources and keep them handy</div>
+              <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s2-4"></span> If no: create a resource with "deep research mode" (see Step 1A)</div>
+            </div>
+          </div>
+          <div class="callout callout-warning">
+            <strong>Reality check:</strong> Do you need resources? That depends. If you're defining a personality, you probably <strong>don't</strong> need a resource - you'll include that in the prompt. If you're aligning to researched best practices, or specific policies, you probably <strong>do</strong>. If you're leveraging commonly known information (a music teacher that needs its bot to be an expert on music theory) you probably <strong>don't</strong> need a specific resource - simply including "you are an expert on music theory" in the Gem's prompt will be more than enough.
+          </div>
+
+          <div class="callout callout-example">
+            <strong>How the SBG Rubric Coach did it:</strong> The resource was a deep research document on rubric design, grounding every recommendation in O'Connor, Marzano, Brookhart, and Wiggins &amp; McTighe -- not just whatever Gemini's training data says about rubrics.
+            <a href="index.html#showcase">See the full research doc.</a>
+          </div>
+
+          <div class="guided-nav">
+            <button class="btn btn-sm guided-prev" onclick="guidedPrev()">Previous</button>
+            <span class="guided-counter"></span>
+            <button class="btn btn-primary btn-sm guided-next" onclick="guidedNext()">Next</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== STEP 2A ===== -->
+      <section class="step-section" id="step2a">
+        <div class="step-header">
+          <div class="step-icon">
+            <svg aria-hidden="true" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <div>
+            <h2>Step 2A: Give your Gem a knowledge backbone</h2>
+            <div class="step-subtitle">Use deep research to ground your Gem in real expertise, not generic AI output</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="checklist">
+            <div class="checklist-title">Make your Prompt</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s2a-1"></span> Use AI to help you write the <strong>deep research prompt</strong></div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s2a-2"></span> Start with a new chat. Tell it that its job is to help you create a new Deep Research prompt about your topic. List any authors, ideas, structure, length, the main research question you want answered - give it all the details, <strong>and ask it if there are any things or authors' ideas you've left out that it recommends including.</strong></div>
+            <div class="pro-tip"><strong>PRO TIP:</strong> Tell it to ask you some clarifying questions before it moves on to writing the Deep Research Prompt.</div>
+          </div>
+
+          <div class="prompt-label">Prompt you can steal (Deep Research Prompt Builder)</div>
+          <div class="prompt-box" id="p-deep-research">
+            <div class="copy-overlay">
+              <button class="btn-ghost" onclick="copyPrompt('p-deep-research')" aria-label="Copy deep research prompt to clipboard">Copy</button>
+            </div>
+            <pre>I'm building a resource that my future Google Gem will rely on.
+
+Here's what I need this resource to be about:
+(insert everything you want it to research, what question
+the output needs to answer, how you want it organized,
+what people/resources/concepts to focus on)
+
+Before you write the resource, ask me some clarifying questions.
+
+Then write a "Deep Research Resource" (1,500-3,000 words) that:
+1) Clearly defines the problem and why it matters
+2) Explains key principles in plain language
+3) Names and summarizes key research from relevant
+   authors/frameworks AND any others I may be missing
+4) Is a well-researched, well-cited, complete picture that
+   will be used to support the Google Gem I will be building.</pre>
+          </div>
+
+          <div class="checklist" style="margin-top: 16px;">
+            <div class="checklist-title">Use your Prompt</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s2a-3"></span> Once you think AI has everything it needs, have it write your Deep Research Prompt.</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s2a-4"></span> Toggle Gemini into <strong>Deep Research Mode</strong>. Paste in the prompt Gemini gave you to generate your new resource.</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s2a-5"></span> Skim / verify / edit the resource (don't assume it's perfect - make sure it's right for your needs!)</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s2a-6"></span> Use that resource as the backbone for your Gem prompt in Step 2</div>
+          </div>
+
+          <div class="callout callout-info">
+            <strong>Efficiency move:</strong> While the deep research is generating, you can start Step 2 (your braindump).
+          </div>
+
+          <div class="callout callout-info" style="margin-top:12px;">
+            <strong>Want to see what a real deep research document looks like?</strong> Open the <a href="index.html#showcase" class="external-link">"See what a finished Gem looks like"</a> panel at the top and expand the deep research document. That's what this process produces.
+          </div>
+
+          <div class="guided-nav">
+            <button class="btn btn-sm guided-prev" onclick="guidedPrev()">Previous</button>
+            <span class="guided-counter"></span>
+            <button class="btn btn-primary btn-sm guided-next" onclick="guidedNext()">Next</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== STEP 2 ===== -->
+      <section class="step-section" id="step3">
+        <div class="step-header">
+          <div class="step-icon blue">
+            <svg aria-hidden="true" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          </div>
+          <div>
+            <h2>Step 3: Brain dump + Draft the Gem prompt</h2>
+            <div class="step-subtitle">This is the most important step</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="callout callout-warning">
+            <strong>This is the most important step.</strong> The quality of your Gem is usually determined by how well you explain your intent here.
+          </div>
+
+          <div class="callout callout-info">
+            <strong>Aim high.</strong> You're not writing a one-paragraph prompt. Think about the structure your Gem needs to be truly useful:
+            <ul>
+              <li><strong>Operational phases</strong> - Does the Gem need different modes? (e.g., "audit an existing thing" vs. "build a new thing from scratch")</li>
+              <li><strong>Internal rules</strong> - Are there silent priorities the Gem should enforce without announcing? (e.g., always check for bias, never skip a diagnostic step)</li>
+              <li><strong>Specific coaching moves</strong> - Don't just say "give feedback." Define the exact questions or routines it should use.</li>
+              <li><strong>Guardrails</strong> - What should the Gem <em>never</em> do? (e.g., "never give the answer directly - ask a question instead")</li>
+              <li><strong>Interaction style</strong> - Should it chunk feedback? Use Socratic questioning? Walk through steps one at a time?</li>
+            </ul>
+          </div>
+
+          <div class="callout callout-example">
+            <strong>How the SBG Rubric Coach did it:</strong> The braindump included specific diagnostic traps the creator had seen in real rubrics -- the "More Work" trap, the "Behavior" trap, and the "Vague" trap. Each trap got its own coaching move with a Socratic question. This level of specificity is what makes the Gem operational, not generic.
+            <a href="index.html#showcase">See the full prompt.</a>
+          </div>
+
+          <div class="checklist">
+            <div class="checklist-title">Checklist</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s3-1"></span> Tell the AI that its job is to help you write a prompt for a Google Gem. Then explain all of the following:</div>
+            <div class="checklist-indent">
+              <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s3-2"></span> Tell AI who you are (role + context)</div>
+              <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s3-3"></span> Explain the problem you want the Gem to solve</div>
+              <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s3-4"></span> Explain what "good output" looks like (format + tone + audience)</div>
+              <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s3-5"></span> Provide any guardrails, or things the AI should never do. e.g. "never move on to step 2 until the user has confirmed that they are finished with step 1"</div>
+              <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s3-6"></span> Upload the resource(s) the Gem will ultimately have access to</div>
+            </div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s3-7"></span> Ask the AI to ask clarifying questions BEFORE drafting the prompt</div>
+            <div class="pro-tip"><strong>PRO TIP:</strong> Use <kbd>Shift</kbd> + <kbd>Return</kbd> to create a new line without sending your message to Gemini.</div>
+          </div>
+
+          <div class="prompt-label">Prompt you can steal (Braindump &rarr; Clarify &rarr; Draft)</div>
+          <div class="prompt-box" id="p-braindump">
+            <div class="copy-overlay">
+              <button class="btn-ghost" onclick="copyPrompt('p-braindump')" aria-label="Copy braindump prompt to clipboard">Copy</button>
+            </div>
+            <pre>I need you to help me write a Google Gem prompt.
+
+Here's my brain dump:
+- Who I am / my role:
+- My context:
+- The problem I want this Gem to solve (one sentence):
+- Why it matters:
+- What "good" looks like:
+- The outputs I want (formats, examples):
+- The tone I want:
+- What I DON'T want the Gem to do:
+- Any constraints I'm working under:
+- I've uploaded the resource I want it to use (upload the resource)
+
+Before you draft anything:
+1) Ask me some clarifying questions.
+2) List any risks you see (where it could get generic
+   or invent details).
+
+Wait for my responses and confirm when we're ready to draft.
+
+Then draft the first version of the Gem prompt with
+skimmable headings and clear guardrails. After you draft,
+stay in "collaboration mode" and revise the prompt with me
+until it's ready to test.</pre>
+          </div>
+
+          <div class="guided-nav">
+            <button class="btn btn-sm guided-prev" onclick="guidedPrev()">Previous</button>
+            <span class="guided-counter"></span>
+            <button class="btn btn-primary btn-sm guided-next" onclick="guidedNext()">Next</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== STEP 3 ===== -->
+      <section class="step-section" id="step4">
+        <div class="step-header">
+          <div class="step-icon">
+            <svg aria-hidden="true" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div>
+            <h2>Step 4: Test the draft inside a Gem</h2>
+            <div class="step-subtitle">Put it in Gemini and see how it behaves</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="checklist">
+            <div class="checklist-title">Checklist</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s4-1"></span> Paste the draft prompt into a Gem</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s4-2"></span> Run 1-2 realistic tests (not perfect scenarios)</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s4-3"></span> Save 1 example of "good" output and 1 example of "bad" output</div>
+          </div>
+
+          <div class="walkthrough">
+            <h3>How to Create &amp; Test a Gem (Quick Walkthrough)</h3>
+            <ol>
+              <li>
+                <strong>Open the Gem manager.</strong> In Gemini, click <strong>Gems</strong> in the left sidebar.
+                
+                <img class="screenshot-img" src="images/open-gem-manager.png" alt="Gemini sidebar showing the Gems button circled" loading="lazy">
+              </li>
+              <li>
+                <strong>Click "New Gem."</strong> This opens the editor where you name your Gem and paste your prompt.
+                
+                <img class="screenshot-img" src="images/click-new-gem.png" alt="Gem manager page with New Gem button highlighted" loading="lazy">
+              </li>
+              <li>
+                <strong>Name the Gem and paste your prompt.</strong> Give it a name, then paste your full prompt into the <strong>Instructions</strong> field.
+                
+                <img class="screenshot-img" src="images/name-and-paste-prompt.png" alt="New Gem editor showing Name and Instructions fields" loading="lazy">
+              </li>
+              <li>
+                <strong>Add resources (if needed).</strong> If your Gem depends on documents, click <strong>+ Knowledge</strong> and upload your files. <em>(This is easy to forget!)</em>
+                
+                <img class="screenshot-img" src="images/add-resources.png" alt="Knowledge section with Upload files and Add from Drive options" loading="lazy">
+              </li>
+              <li>
+                <strong>Save the Gem.</strong> Hit <strong>Save</strong> in the top right (don't exit without saving).
+                
+                <img class="screenshot-img" src="images/save-the-gem.png" alt="Save button highlighted in top right of Gem editor" loading="lazy">
+              </li>
+              <li>
+                <strong>Start Chat &amp; test.</strong> Click <strong>Start Chat</strong> and run 1-2 realistic test scenarios.
+                
+                <img class="screenshot-img" src="images/start-chat-and-test.png" alt="Start Chat button in the Gem created dialog" loading="lazy">
+              </li>
+            </ol>
+          </div>
+
+          <div class="guided-nav">
+            <button class="btn btn-sm guided-prev" onclick="guidedPrev()">Previous</button>
+            <span class="guided-counter"></span>
+            <button class="btn btn-primary btn-sm guided-next" onclick="guidedNext()">Next</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== STEP 4 ===== -->
+      <section class="step-section" id="step5">
+        <div class="step-header">
+          <div class="step-icon">
+            <svg aria-hidden="true" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+          </div>
+          <div>
+            <h2>Step 5: If necessary, iterate using "bad output" examples</h2>
+            <div class="step-subtitle">Feed bad results back into the drafting conversation</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="checklist">
+            <div class="checklist-title">Checklist</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s5-1"></span> Paste the "bad output" into your drafting conversation</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s5-2"></span> Say what you didn't like (be specific)</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s5-3"></span> Say what you want instead (tone, structure, outputs, organization...)</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="s5-4"></span> Update the prompt in your Gem and re-test</div>
+          </div>
+
+          <h4 style="margin: 24px 0 8px; font-size: 15px; color: var(--ink);">Example: What iteration looks like</h4>
+          <div class="compare-grid">
+            <div class="compare-card bad">
+              <h4>First draft (generic)</h4>
+              <pre>You are a helpful writing assistant.
+Help teachers write better rubrics.
+Be encouraging and supportive.
+Ask clarifying questions if needed.</pre>
+            </div>
+            <div class="compare-card good">
+              <h4>After iteration (operational)</h4>
+              <pre>Role: Expert SBG Instructional Coach.
+Tone: Supportive partner, not a grader.
+Use plain language. No jargon.
+
+Internal Mandates (silent priorities):
+- Guard against "more work" as Level 4
+- Flag hidden behavior in academic criteria
+- Eliminate vague qualifiers ("excellent")
+
+Phase 1: Diagnostic Audit
+  When given a rubric, scan for traps:
+  Trap 1: "More Work" in Level 4.0
+  Coaching Move: "Does this require
+  deeper thinking, or just more volume?"
+
+Phase 2: Guided Construction
+  Step 1: Ask for the standard
+  Step 2: Unpack nouns + verbs
+  Step 3: Draft performance levels
+
+Phase 3: Coaching Loop
+  - One criterion at a time
+  - Socratic questions, not directives
+  - Never rewrite without diagnosing first</pre>
+            </div>
+          </div>
+          <p style="font-size: 13px; color: var(--muted); margin-top: 4px;">The first draft tells the AI <em>what to be</em>. The iterated version tells it <em>how to think</em> - with phases, diagnostic routines, internal mandates, and specific coaching moves.</p>
+
+          <div class="prompt-label" style="margin-top: 20px;">Prompt you can steal (Fix bad output)</div>
+          <div class="prompt-box" id="p-fix-output">
+            <div class="copy-overlay">
+              <button class="btn-ghost" onclick="copyPrompt('p-fix-output')" aria-label="Copy fix output prompt to clipboard">Copy</button>
+            </div>
+            <pre>Here's what my Gem produced:
+[PASTE BAD OUTPUT]
+
+What I didn't like:
+- [too generic / wrong tone / too long / skipped steps /
+   invented info / etc.]
+
+What I want instead:
+- [exact behavior]
+- [required questions it should ask first]
+- [required output format it must follow]
+
+Revise my Gem prompt so the Gem produces what I want.</pre>
+          </div>
+
+          <div class="callout callout-example">
+            <strong>How the SBG Rubric Coach did it:</strong> Early drafts produced generic advice like "make your rubric clearer." After iteration, the Gem learned to run a diagnostic scan for specific traps, ask targeted Socratic questions, and never rewrite a rubric without diagnosing it first. That specificity came from feeding back real "bad output" and naming exactly what was wrong.
+          </div>
+
+          <div class="guided-nav">
+            <button class="btn btn-sm guided-prev" onclick="guidedPrev()">Previous</button>
+            <span class="guided-counter"></span>
+            <button class="btn btn-primary btn-sm guided-next" onclick="guidedNext()">Next</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== QUALITY SELF-ASSESSMENT ===== -->
+      <section class="step-section" id="self-assessment">
+        <div class="step-header">
+          <div class="step-icon">
+            <svg aria-hidden="true" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <div>
+            <h2>Quality Check: Is your Gem production-ready?</h2>
+            <div class="step-subtitle">Rate your Gem against the framework's architecture</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <p>A good Gem is more than a long prompt. Use this checklist to see if yours has the architectural features that separate a production system from a toy.</p>
+          <div class="checklist">
+            <div class="checklist-title">Self-Assessment</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="qa-1"></span> Does my Gem have a <strong>clearly defined role</strong> with specific tone constraints?</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="qa-2"></span> Does it have <strong>internal quality mandates</strong> (silent priorities it enforces)?</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="qa-3"></span> Does it have <strong>distinct operational phases</strong> for different user needs?</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="qa-4"></span> Does it define <strong>specific coaching moves</strong>, not just "give feedback"?</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="qa-5"></span> Does it have <strong>guardrails</strong> for what it should never do?</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="qa-6"></span> Is it grounded in a <strong>knowledge resource</strong> (not just generic AI training data)?</div>
+          </div>
+          <div class="callout callout-info">
+            <strong>Scoring:</strong> If you checked 4 or more, your Gem is likely production-quality. If you checked fewer, revisit Steps 2A and 3 to add depth. The SBG Rubric Coach checks all six -- <a href="index.html#showcase">see why</a>.
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WHAT TO DO NEXT ===== -->
+      <section class="step-section" id="next-steps">
+        <div class="step-header">
+          <div class="step-icon">
+            <svg aria-hidden="true" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+          <div>
+            <h2>What to do next</h2>
+            <div class="step-subtitle">Your Gem is built. Now make it stick.</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="checklist">
+            <div class="checklist-title">Next Steps</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="ns-1"></span> <strong>Share your Gem</strong> with a colleague and ask them to test it with a real scenario</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="ns-2"></span> <strong>Revisit after 2 weeks</strong> of use -- collect bad outputs and iterate again</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="ns-3"></span> <strong>Build another Gem</strong> for a different problem using this same framework</div>
+            <div class="checklist-item"><span class="check-box" role="checkbox" aria-checked="false" tabindex="0" data-id="ns-4"></span> <strong>Share the framework</strong> -- send someone to <a href="index.html">the landing page</a> so they can see why this matters</div>
+          </div>
+          <div class="callout callout-goal">
+            <strong>Remember:</strong> The best Gems are not built in one sitting. They are iterated over time based on real use. The framework you just completed is a cycle, not a checklist -- come back to it.
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /workshop-content -->
+  </main><!-- /zone-workshop -->
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="framework.html">Workshop</a>
+        <a href="#step1">Back to top</a>
+      </nav>
+      <p>The Gem Framework &mdash; Designed for AI Literacy and Pedagogical Innovation.</p>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite">Copied to clipboard!</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
