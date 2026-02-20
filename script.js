@@ -21,15 +21,28 @@
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   }
 
+  function toggleCheckbox(box) {
+    box.classList.toggle('checked');
+    const isChecked = box.classList.contains('checked');
+    box.setAttribute('aria-checked', String(isChecked));
+    const s = loadChecks();
+    s[box.dataset.id] = isChecked;
+    saveChecks(s);
+  }
+
   function initCheckboxes() {
     const state = loadChecks();
     document.querySelectorAll('.check-box[data-id]').forEach(box => {
-      if (state[box.dataset.id]) box.classList.add('checked');
-      box.addEventListener('click', () => {
-        box.classList.toggle('checked');
-        const s = loadChecks();
-        s[box.dataset.id] = box.classList.contains('checked');
-        saveChecks(s);
+      if (state[box.dataset.id]) {
+        box.classList.add('checked');
+        box.setAttribute('aria-checked', 'true');
+      }
+      box.addEventListener('click', () => toggleCheckbox(box));
+      box.addEventListener('keydown', e => {
+        if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          toggleCheckbox(box);
+        }
       });
     });
   }

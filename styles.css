@@ -37,6 +37,35 @@ body {
   line-height: 1.65;
 }
 
+/* --- Accessibility --- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  padding: 12px 24px;
+  background: var(--brand);
+  color: white;
+  font-weight: 700;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  transition: top .2s;
+}
+.skip-link:focus {
+  top: 0;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* --- Typography --- */
 h1, h2, h3, h4 { line-height: 1.2; }
 
@@ -460,6 +489,7 @@ body.guided-mode .guided-nav { display: flex; }
   transition: all .12s;
 }
 .check-box:hover { border-color: var(--brand); }
+.check-box:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
 .check-box.checked { background: var(--brand); border-color: var(--brand); }
 .check-box.checked::after {
   content: "\2713";
