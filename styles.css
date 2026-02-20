@@ -257,6 +257,18 @@ h1, h2, h3, h4 { line-height: 1.2; }
   font-style: italic;
 }
 
+.compare-reassurance {
+  font-size: 16px;
+  color: var(--ink);
+  margin-top: 14px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.compare-reassurance strong {
+  color: var(--accent);
+}
+
 /* Positioning section */
 .section-positioning p {
   font-size: 16px;
@@ -266,6 +278,33 @@ h1, h2, h3, h4 { line-height: 1.2; }
 }
 .section-positioning p strong {
   color: var(--ink);
+}
+
+/* Active badge */
+.active-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #15803d;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+.active-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .4; }
 }
 
 /* Annotated prompt */
@@ -353,6 +392,18 @@ h1, h2, h3, h4 { line-height: 1.2; }
   border-radius: 6px;
   line-height: 1.5;
   font-weight: 500;
+}
+.library-build-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brand);
+  text-decoration: none;
+  transition: color .15s;
+}
+.library-build-link:hover {
+  color: var(--brand-dark);
 }
 
 /* Domain grid */
@@ -460,6 +511,43 @@ h1, h2, h3, h4 { line-height: 1.2; }
   color: var(--muted);
   font-weight: 500;
 }
+
+/* Gem starter callout (from Idea Library) */
+.gem-starter {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  display: none;
+}
+.gem-starter.visible { display: block; }
+.gem-starter-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #1e40af;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin: 0 0 8px;
+}
+.gem-starter p {
+  font-size: 15px;
+  color: #1e3a5f;
+  margin: 0;
+  line-height: 1.6;
+}
+.gem-starter-dismiss {
+  appearance: none;
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 8px;
+}
+.gem-starter-dismiss:hover { color: var(--ink); }
 
 /* SBG callout example */
 .callout-example {
@@ -1163,4 +1251,89 @@ kbd {
   .why-grid { grid-template-columns: 1fr; }
   .section-inner h2 { font-size: 24px; }
   .outcome-preview { margin: -12px 16px 20px; padding: 20px; }
+}
+
+/* ==========================================
+   Print styles (workshop page)
+   ========================================== */
+@media print {
+  /* Reset layout */
+  body { background: white; color: black; font-size: 11pt; line-height: 1.5; }
+  * { box-shadow: none !important; }
+
+  /* Hide interactive/nav elements */
+  .site-nav,
+  .sidebar-nav,
+  .toolbar,
+  .mobile-progress,
+  .skip-link,
+  .guided-nav,
+  .copy-overlay,
+  .btn-ghost,
+  .site-footer,
+  .gem-starter-dismiss,
+  .hero-scroll-link,
+  .cta-btn,
+  .library-build-link { display: none !important; }
+
+  /* Simplify hero */
+  .zone-hero {
+    background: #065a60 !important;
+    padding: 32px 24px !important;
+    page-break-after: avoid;
+  }
+  .zone-hero::after { display: none; }
+  .zone-hero h1 { font-size: 28pt; }
+  .zone-hero p { font-size: 12pt; }
+
+  /* Full-width content */
+  .zone-workshop {
+    display: block !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  .step-body { padding-left: 0 !important; }
+  .outcome-preview { box-shadow: none; border: 1px solid #ccc; margin: 16px 0; }
+
+  /* Expand all details */
+  details { open: true; }
+  details[open] summary { margin-bottom: 8px; }
+  summary svg { display: none; }
+
+  /* Prompt boxes: light background for printing */
+  .prompt-box {
+    background: #f5f5f5 !important;
+    color: #1a1a1a !important;
+    border: 1px solid #ccc !important;
+    page-break-inside: avoid;
+  }
+
+  /* Page breaks */
+  .step-section { page-break-inside: avoid; }
+  h2, h3 { page-break-after: avoid; }
+
+  /* Checklists: render as simple list */
+  .check-box {
+    border: 2px solid #999 !important;
+    background: white !important;
+  }
+  .check-box.checked { background: #999 !important; }
+
+  /* Callouts */
+  .callout { border-width: 1px; }
+  .callout-example { background: #f9f5ff !important; }
+
+  /* Images */
+  .screenshot-img { max-width: 80%; page-break-inside: avoid; }
+
+  /* Links: show URL */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #666;
+  }
+  /* But not for nav/internal links */
+  .nav-links a::after,
+  .footer-nav a::after,
+  a[href^="#"]::after { content: none; }
 }
