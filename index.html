@@ -20,19 +20,199 @@
   </header>
 
   <!-- ==========================================
-       ZONE 2 — Teaser card
+       ZONE 2 — Teaser (expands to show showcase)
        ========================================== -->
   <div class="zone-teaser">
-    <a class="teaser-card" href="#showcase">
-      <div class="teaser-icon">
-        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+    <details id="showcase">
+      <summary>
+        <div class="teaser-card">
+          <div class="teaser-icon">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.27 5.82 21 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+          </div>
+          <div class="teaser-text">
+            <h3>See what a finished Gem actually looks like</h3>
+            <p>A real multi-phase coaching system built with this framework - with full prompt and research doc.</p>
+          </div>
+          <svg class="teaser-chevron" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </summary>
+      <div class="teaser-body">
+        <span class="section-label" style="font-size:13px;text-transform:uppercase;letter-spacing:.15em;color:var(--brand);font-weight:800;display:block;margin-bottom:12px;">Real Example</span>
+        <h2 style="font-size:clamp(22px,3vw,28px);font-weight:850;letter-spacing:-0.03em;color:var(--ink);margin:0 0 12px;">SBG Rubric Coach - Why it works</h2>
+        <p style="font-size:15px;color:var(--muted);margin-bottom:24px;">The process below doesn't produce a one-liner prompt. It produces something like this: a multi-phase AI coaching system with internal quality mandates, diagnostic routines, and a deep research backbone.</p>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <h4>Defined Role + Tone</h4>
+            <p>Not just "be helpful" - it specifies <em>expert SBG coach</em>, <em>supportive partner not a grader</em>, and mandates plain language over jargon.</p>
+          </div>
+          <div class="why-card">
+            <h4>Internal Quality Mandates</h4>
+            <p>Silent priorities the AI enforces without announcing them - guarding against grade inflation, grading behavior, and vague language.</p>
+          </div>
+          <div class="why-card">
+            <h4>Operational Phases</h4>
+            <p>Three distinct modes (Diagnostic Audit, Guided Construction, Coaching Loop) so the Gem adapts to what the teacher actually needs.</p>
+          </div>
+          <div class="why-card">
+            <h4>Specific Coaching Moves</h4>
+            <p>Instead of "give feedback," it defines exact diagnostic traps to scan for and Socratic questions to ask for each one.</p>
+          </div>
+          <div class="why-card">
+            <h4>Research Backbone</h4>
+            <p>A deep research document grounds every recommendation in O'Connor, Marzano, Brookhart, and Wiggins &amp; McTighe - not just AI guesswork.</p>
+          </div>
+          <div class="why-card">
+            <h4>Guardrails</h4>
+            <p>Explicit rules like "never rewrite a rubric immediately - run a diagnostic first" and "chunk feedback, one criterion at a time."</p>
+          </div>
+        </div>
+
+        <p style="font-size:14px;color:var(--muted);margin-bottom:16px;">Expand below to see the full Gem prompt and the deep research document that powers it.</p>
+
+        <!-- Full Gem Prompt -->
+        <details class="expandable">
+          <summary>
+            View full Gem prompt: SBG Rubric Coach
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="expandable-body">
+            <div class="prompt-box" id="p-showcase-gem">
+              <div class="copy-overlay">
+                <button class="btn-ghost" onclick="copyPrompt('p-showcase-gem')">Copy</button>
+              </div>
+              <pre>System Prompt: SBG Rubric Coach
+
+Role: You are an expert Standards-Based Grading (SBG) Instructional Coach. Your goal is to support K-12 teachers in designing and refining rubrics that are rigorous, fair, and pedagogically sound.
+
+Tone &amp; Style: You are a supportive partner, not a grader. Use plain, accessible language at all times. Avoid academic jargon (like "construct validity" or "inter-rater reliability") unless you immediately explain it in simple terms. Your goal is to help teachers reflect on their practice, not just fix their documents.
+
+Knowledge Base: You have access to the document "Improving Rubric Design for SBG." You must apply the principles of O'Connor, Marzano, and Brookhart found in this text, but translate them into actionable coaching advice.
+
+---
+
+Internal Quality Control Mandates
+
+These are your silent priorities. You must proactively guide teachers away from these common pitfalls without explicitly stating "I am checking for this because it is a district problem."
+
+Guard Against "Grade Inflation" (The Rigor Mandate): You must ensure Level 4.0 (Advanced) is not just "more work." It must represent deeper thinking and transfer to new contexts.
+
+Guard Against "Grading Behavior" (The Bias Mandate): You must strictly separate academic mastery from habits of work. Even subconscious inclusions of "effort" or "timeliness" must be flagged and removed from academic criteria.
+
+Guard Against Subjectivity (The Clarity Mandate): You must eliminate vague qualifiers that allow for rater bias (e.g., "excellent," "poor," "creative").
+
+---
+
+Operational Phases
+
+Determine the user's need and enter the appropriate phase.
+
+Phase 1: The Diagnostic Audit (For Existing Rubrics)
+When a teacher submits a rubric, do not rewrite it immediately. Run a diagnostic scan for the following "Traps" and address them one by one.
+
+  Trap 1: The "More Work" Trap (Level 4.0 Issues)
+  Scan for: Quantitative words in the Advanced column (e.g., "3 examples," "extra steps," "no errors").
+  The Coaching Move: Ask the teacher: "Does this Level 4 require the student to think deeper (complexity), or just do more (volume)? How can we change this to ask them to apply the skill in a brand new context?"
+
+  Trap 2: The "Behavior" Trap (Hidden Bias)
+  Scan for: Non-academic terms (e.g., "effort," "participation," "neatness," "turned in on time").
+  The Coaching Move: "I notice words like 'effort' or 'neatness' here. To keep this grade purely about their skill, should we move these to a separate 'Habits of Work' report?"
+
+  Trap 3: The "Vague" Trap (Subjectivity)
+  Scan for: Subjective adjectives (e.g., "excellent," "adequate," "weak").
+  The Coaching Move: "Words like 'excellent' can be interpreted differently by different people. Can we replace this with something observable? What does 'excellent' actually look like in the work?"
+
+Phase 2: Guided Construction (For New Rubrics)
+If a teacher wants to build from scratch, strictly enforce the Backward Design sequence.
+
+  Step 1: The Standard. Ask for the specific grade-level standard.
+  Step 2: The Unpacking. Ask the teacher to identify the Nouns (Concepts to Know) and the Verbs (Skills to Do). Turn these into the rubric Criteria.
+  Step 3: The Levels. Guide the drafting of the Performance Level Descriptions (PLDs).
+  Key Rule: Ensure Level 3.0 matches the standard exactly. Ensure Level 4.0 requires Cognitive Transfer (using the skill in a novel way).
+
+Phase 3: The Coaching Loop (Interaction Guidelines)
+  Chunk Feedback: Never give a "wall of text." Address one specific column or criterion at a time.
+  Socratic Approach: Ask questions that prompt the teacher to find the answer.
+    Instead of: "Remove '3 examples'."
+    Say: "If a student provided 3 examples but they were all very simple, would they still deserve an Advanced score? How might we fix that?"
+
+---
+
+Initial Prompt to User
+Start by introducing yourself as their SBG Coach. Ask if they want to (A) Review an existing rubric to check for rigor and clarity, or (B) Build a new rubric starting from a standard.</pre>
+            </div>
+          </div>
+        </details>
+
+        <!-- Full Deep Research Document -->
+        <details class="expandable">
+          <summary>
+            View the deep research document that powers this Gem
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </summary>
+          <div class="expandable-body">
+            <p style="font-size:14px;color:var(--muted);margin:0 0 16px;">This document was generated using Gemini's Deep Research mode and uploaded to the Gem as a Knowledge resource. It gives the Gem a research-grounded foundation so its coaching advice is based on actual scholarship, not generic AI output.</p>
+            <div class="doc-reader">
+
+<h2>Designing High-Fidelity Rubrics for Standards-Based Systems: A Technical Framework for Rigor and Alignment</h2>
+
+<p>Standards-Based Grading (SBG) requires assessment instruments that transcend mere grading compliance to accurately reflect student mastery of complex learning objectives. The analytic rubric serves as the foundational artifact in this ecosystem, providing clear definitions of achievement quality across a predefined progression of learning. This report outlines the technical requirements and psychometric principles, drawing upon established research in educational measurement, necessary to design high-fidelity rubrics suitable for both educator use and computational analysis by an AI coaching model. The focus is strictly on maximizing construct validity and inter-rater reliability within the context of a 4-point proficiency scale.</p>
+
+<h3>Section 1: The Theoretical Case for Standards-Based Assessment Accuracy</h3>
+
+<h4>A. The Shift from Compliance to Competence (O'Connor and Schimmer)</h4>
+<p>The adoption of SBG mandates a fundamental shift away from traditional grading practices that often conflate academic achievement with non-cognitive factors such as effort, attendance, or timeliness. In SBG, the reporting mechanism must strictly focus on demonstrated learning mastery of standards, rather than simply reporting tasks completed.</p>
+<p>Assessment expert Ken O'Connor developed guidelines, including "15 fixes for broken grades," which fundamentally advocate for the systematic separation of evidence concerning academic achievement from process criteria (e.g., homework completion, classroom behavior). When these non-cognitive process criteria are factored into the academic grade, they contaminate the measurement of knowledge, introducing noise into the achievement data.</p>
+<p>Tom Schimmer emphasizes the need for educators to find their "Grading True North," challenging conventional practices where reporting mandates sometimes force compliance over accuracy. The objective of a high-fidelity rubric is to mitigate this pressure by ensuring that any score entered accurately relates exclusively to the student's mastery of the defined standard, establishing a defensible link between the observed performance and the reported achievement.</p>
+
+<h4>B. Quantifying the Risk of Inaccuracy and Misalignment</h4>
+<p>The consequences of inaccurate grading extend beyond classroom management, impacting systemic equity. Analysis of grading practices reveals a significant measurement problem: studies indicate a mismatch of up to 60% between teacher-assigned grades and student performance on standardized assessments. This substantial discrepancy often manifests as either grade inflation or grade depression. Crucially, grade inflation is reported more frequently among Black, Hispanic, and lower-income students when compared to other groups, leading to misalignment that can cause students to struggle in subsequent advanced courses.</p>
+<p>The core function of a rigorously designed SBG rubric is to enforce O'Connor's principle of separation, thereby rigorously eliminating Construct-Irrelevant Variance (CIv) by limiting criteria solely to observable evidence of achievement standards.</p>
+
+<h3>Section 2: Backward Design as the Rubric Blueprint</h3>
+
+<h4>A. Stage 1 and 2: Identifying Results and Evidence (Wiggins &amp; McTighe)</h4>
+<p>High-fidelity rubric development must be procedural, beginning with the Backward Design framework articulated by Wiggins and McTighe. This framework mandates starting with Stage 1: identifying desired results (the grade-level standard), followed by Stage 2: determining acceptable evidence (the assessment task and its rubric). This rigorous sequencing prevents instructional activities from dictating the criteria for success; instead, the standard dictates the criteria.</p>
+
+<h4>B. Designing Evidence to Elicit Understanding</h4>
+<p>To measure authentic achievement, assessment tasks must move beyond simple recall. Wiggins and McTighe define true student understanding through the Six Facets, including the ability to Explain, Interpret, and Apply knowledge. When designing assessments for higher-order thinking skills (HOTS), it is essential to utilize novel material - content that is new to the student and was not explicitly covered during instruction. This requirement prevents the assessment from inadvertently defaulting to measuring recall or rote memorization of classroom examples.</p>
+
+<h3>Section 3: Formalizing Rigor: Aligning Standards to Cognitive Complexity</h3>
+
+<h4>A. Resolving Measurement Overlap: DOK vs. Proficiency Scale</h4>
+<p>A precise understanding of cognitive complexity is vital. Both Webb's Depth of Knowledge (DOK) framework and the Marzano/Kendall Proficiency Scale employ a 1-4 numerical range to denote sophistication. However, their constructs differ: DOK measures the inherent cognitive complexity of the task itself, whereas the Marzano scale measures the student's demonstrated mastery level on the standard. Rigorous assessment design must systematically distinguish between level of difficulty (easy versus hard) and level of thinking (lower-order thinking or recall versus higher-order thinking), controlling for each independently.</p>
+
+<h4>B. Defining Level 3.0 (Proficient) and Engineering Level 4.0 Rigor</h4>
+<p>The foundation of the SBG rubric is the definition of Level 3.0, which signifies Grade-Level Proficiency or "Meets Standard". Defining Level 4.0 (Exceeds Standard) requires careful calibration to ensure it represents a meaningful extension of learning, not simply more work. Level 4.0 must integrate higher cognitive demands, often DOK 3 (Strategic Thinking) or DOK 4 (Extended Thinking). If Level 4.0 is defined only by quantity (e.g., "uses three facts") rather than qualitative complexity (e.g., "justifies the choice of facts using sophisticated evidence"), it fails the rigor test by rewarding volume or effort over genuine intellectual performance.</p>
+
+<h3>Section 4: Deconstruction and Clarity: Unpacking Standards into Measurable Criteria</h3>
+
+<h4>A. Unwrapping for Granularity and Precision</h4>
+<p>The technical construction of the rubric begins with the meticulous deconstruction, or "unwrapping," of the grade-level standard. Unpacking systematically identifies the dual components of the standard: 1) Key Concepts/Knowledge, represented by the nouns or noun phrases (the "Know" component), and 2) Skills/Abilities, represented by the action verbs (the "Be Able to Do" component). These identified components become the discrete, distinct evaluative criteria for the analytic rubric.</p>
+
+<h4>B. Clarity Through Learning Targets (Chappuis)</h4>
+<p>Following deconstruction, the standard's components must be translated into clear, student-friendly learning targets, often expressed as "I can" statements. Jan Chappuis emphasizes that clarity of content standards is essential for accurate assessment and effective shared communication between teachers and students. Granular, criteria-based feedback is a core requirement of SBG; feedback must be provided by standard, not by overall assignment grade.</p>
+
+<h3>Section 5: Psychometric Principles of High-Quality Rubric Design (Brookhart)</h3>
+
+<h4>A. Validity, Reliability, and Usability Requirements</h4>
+<p>Assessment expert Susan Brookhart highlights four evidence-informed principles governing rubric design: criterion alignment, clear measurable language, usability, and psychometric quality (validity and reliability). Structurally, a high-quality rubric must balance detail with practicality, typically limited to 5-7 criteria and 3-5 performance levels.</p>
+
+<h4>B. The Necessity of Observable, Objective Language</h4>
+<p>The most critical principle for ensuring reliability is the use of objective, observable language in the Performance Level Descriptions. Subjective qualifiers, such as "excellent use of grammar," "competent," or "poorly," introduce inherent ambiguity and significantly degrade Inter-Rater Reliability. Brookhart advocates for replacing "Excellent use of grammar" with "Only one or two grammatical errors are present in the paper". Critically, the descriptors must define performance levels based on qualitative differences that reflect genuine developmental progression, not merely quantitative accumulation of facts or points.</p>
+
+<h3>Section 6: Engineering Performance Level Descriptions (PLDs) for the Marzano Scale</h3>
+<p>The 4-point proficiency scale serves as a formalized, structured learning progression, making the rubric highly valuable for diagnosis and instructional alignment. Level 2.0 (Approaching/Developing) represents the prerequisite knowledge and simpler processes necessary for the grade-level standard. Level 3.0 (Proficient/Meets Standard) is the target achievement level, reflecting consistent, independent execution of the grade-level expectation. Level 4.0 (Advanced/Exceeds Standards) requires genuine intellectual extension, defined as mastery of the Level 3.0 standard combined with the ability to apply skills in complex, authentic, and advanced contexts.</p>
+
+<h3>Section 7: Validation, Implementation Fidelity, and AI Integration</h3>
+<p>The final step in rubric development is validation against research-backed criteria to ensure high quality and equity. Validation confirms that the final rubric possesses high alignment (it measures the standard) and high reliability (it yields consistent scoring). High-fidelity rubric design is only effective when implemented with fidelity across the organization. Inconsistent implementation of agreed-upon SBG non-negotiables is cited as a major organizational failure. A standardized, high-quality rubric serves as the core operational blueprint that enforces consistent achievement expectations across courses and grade levels.</p>
+<p>The AI coaching model must function as a measurement quality controller. Its automated audit functions should verify the criteria against known standards and rigor requirements, flagging potential flaws in DOK mapping or criteria distinction. By providing standardized, data-driven feedback on rubric construction, the AI model ensures consistent implementation of SBG tenets across an institution.</p>
+
+            </div>
+          </div>
+        </details>
       </div>
-      <div class="teaser-text">
-        <h3>See what a finished Gem actually looks like</h3>
-        <p>A real multi-phase coaching system built with this framework - with full prompt and research doc.</p>
-      </div>
-      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;opacity:.4;"><path d="M6 9l6 6 6-6"/></svg>
-    </a>
+    </details>
   </div>
 
   <!-- ==========================================
@@ -261,7 +441,7 @@ Then write a "Deep Research Resource" (1,500-3,000 words) that:
           </div>
 
           <div class="callout callout-info" style="margin-top:12px;">
-            <strong>Want to see what a real deep research document looks like?</strong> Jump to the <a href="#showcase" class="external-link">showcase at the bottom</a> and expand the deep research document. That's what this process produces.
+            <strong>Want to see what a real deep research document looks like?</strong> Open the <a href="#showcase" class="external-link">"See what a finished Gem looks like"</a> panel at the top and expand the deep research document. That's what this process produces.
           </div>
 
           <div class="guided-nav">
@@ -506,189 +686,7 @@ Revise my Gem prompt so the Gem produces what I want.</pre>
     </div><!-- /workshop-content -->
   </div><!-- /zone-workshop -->
 
-  <!-- ==========================================
-       ZONE 4 — Showcase (payoff section)
-       ========================================== -->
-  <section class="zone-showcase" id="showcase">
-    <div class="showcase-inner">
-      <span class="section-label">Real Example</span>
-      <h2>What a finished Gem actually looks like</h2>
-      <p class="showcase-lead">The process above doesn't produce a one-liner prompt. It produces something like this: a multi-phase AI coaching system with internal quality mandates, diagnostic routines, and a deep research backbone. Here's a real Gem built using this framework.</p>
-
-      <div class="why-grid">
-        <div class="why-card">
-          <h4>Defined Role + Tone</h4>
-          <p>Not just "be helpful" - it specifies <em>expert SBG coach</em>, <em>supportive partner not a grader</em>, and mandates plain language over jargon.</p>
-        </div>
-        <div class="why-card">
-          <h4>Internal Quality Mandates</h4>
-          <p>Silent priorities the AI enforces without announcing them - guarding against grade inflation, grading behavior, and vague language.</p>
-        </div>
-        <div class="why-card">
-          <h4>Operational Phases</h4>
-          <p>Three distinct modes (Diagnostic Audit, Guided Construction, Coaching Loop) so the Gem adapts to what the teacher actually needs.</p>
-        </div>
-        <div class="why-card">
-          <h4>Specific Coaching Moves</h4>
-          <p>Instead of "give feedback," it defines exact diagnostic traps to scan for and Socratic questions to ask for each one.</p>
-        </div>
-        <div class="why-card">
-          <h4>Research Backbone</h4>
-          <p>A deep research document grounds every recommendation in O'Connor, Marzano, Brookhart, and Wiggins &amp; McTighe - not just AI guesswork.</p>
-        </div>
-        <div class="why-card">
-          <h4>Guardrails</h4>
-          <p>Explicit rules like "never rewrite a rubric immediately - run a diagnostic first" and "chunk feedback, one criterion at a time."</p>
-        </div>
-      </div>
-
-      <p style="font-size:14px; color:var(--muted); margin-bottom:16px;">Expand below to see the full Gem prompt and the deep research document that powers it.</p>
-
-      <!-- Full Gem Prompt -->
-      <details class="expandable">
-        <summary>
-          View full Gem prompt: SBG Rubric Coach
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </summary>
-        <div class="expandable-body">
-          <div class="prompt-box" id="p-showcase-gem">
-            <div class="copy-overlay">
-              <button class="btn-ghost" onclick="copyPrompt('p-showcase-gem')">Copy</button>
-            </div>
-            <pre>System Prompt: SBG Rubric Coach
-
-Role: You are an expert Standards-Based Grading (SBG) Instructional Coach. Your goal is to support K-12 teachers in designing and refining rubrics that are rigorous, fair, and pedagogically sound.
-
-Tone &amp; Style: You are a supportive partner, not a grader. Use plain, accessible language at all times. Avoid academic jargon (like "construct validity" or "inter-rater reliability") unless you immediately explain it in simple terms. Your goal is to help teachers reflect on their practice, not just fix their documents.
-
-Knowledge Base: You have access to the document "Improving Rubric Design for SBG." You must apply the principles of O'Connor, Marzano, and Brookhart found in this text, but translate them into actionable coaching advice.
-
----
-
-Internal Quality Control Mandates
-
-These are your silent priorities. You must proactively guide teachers away from these common pitfalls without explicitly stating "I am checking for this because it is a district problem."
-
-Guard Against "Grade Inflation" (The Rigor Mandate): You must ensure Level 4.0 (Advanced) is not just "more work." It must represent deeper thinking and transfer to new contexts.
-
-Guard Against "Grading Behavior" (The Bias Mandate): You must strictly separate academic mastery from habits of work. Even subconscious inclusions of "effort" or "timeliness" must be flagged and removed from academic criteria.
-
-Guard Against Subjectivity (The Clarity Mandate): You must eliminate vague qualifiers that allow for rater bias (e.g., "excellent," "poor," "creative").
-
----
-
-Operational Phases
-
-Determine the user's need and enter the appropriate phase.
-
-Phase 1: The Diagnostic Audit (For Existing Rubrics)
-When a teacher submits a rubric, do not rewrite it immediately. Run a diagnostic scan for the following "Traps" and address them one by one.
-
-  Trap 1: The "More Work" Trap (Level 4.0 Issues)
-  Scan for: Quantitative words in the Advanced column (e.g., "3 examples," "extra steps," "no errors").
-  The Coaching Move: Ask the teacher: "Does this Level 4 require the student to think deeper (complexity), or just do more (volume)? How can we change this to ask them to apply the skill in a brand new context?"
-
-  Trap 2: The "Behavior" Trap (Hidden Bias)
-  Scan for: Non-academic terms (e.g., "effort," "participation," "neatness," "turned in on time").
-  The Coaching Move: "I notice words like 'effort' or 'neatness' here. To keep this grade purely about their skill, should we move these to a separate 'Habits of Work' report?"
-
-  Trap 3: The "Vague" Trap (Subjectivity)
-  Scan for: Subjective adjectives (e.g., "excellent," "adequate," "weak").
-  The Coaching Move: "Words like 'excellent' can be interpreted differently by different people. Can we replace this with something observable? What does 'excellent' actually look like in the work?"
-
-Phase 2: Guided Construction (For New Rubrics)
-If a teacher wants to build from scratch, strictly enforce the Backward Design sequence.
-
-  Step 1: The Standard. Ask for the specific grade-level standard.
-  Step 2: The Unpacking. Ask the teacher to identify the Nouns (Concepts to Know) and the Verbs (Skills to Do). Turn these into the rubric Criteria.
-  Step 3: The Levels. Guide the drafting of the Performance Level Descriptions (PLDs).
-  Key Rule: Ensure Level 3.0 matches the standard exactly. Ensure Level 4.0 requires Cognitive Transfer (using the skill in a novel way).
-
-Phase 3: The Coaching Loop (Interaction Guidelines)
-  Chunk Feedback: Never give a "wall of text." Address one specific column or criterion at a time.
-  Socratic Approach: Ask questions that prompt the teacher to find the answer.
-    Instead of: "Remove '3 examples'."
-    Say: "If a student provided 3 examples but they were all very simple, would they still deserve an Advanced score? How might we fix that?"
-
----
-
-Initial Prompt to User
-Start by introducing yourself as their SBG Coach. Ask if they want to (A) Review an existing rubric to check for rigor and clarity, or (B) Build a new rubric starting from a standard.</pre>
-          </div>
-        </div>
-      </details>
-
-      <!-- Full Deep Research Document -->
-      <details class="expandable">
-        <summary>
-          View the deep research document that powers this Gem
-          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </summary>
-        <div class="expandable-body">
-          <p style="font-size:14px; color:var(--muted); margin:0 0 16px;">This document was generated using Gemini's Deep Research mode and uploaded to the Gem as a Knowledge resource. It gives the Gem a research-grounded foundation so its coaching advice is based on actual scholarship, not generic AI output.</p>
-          <div class="doc-reader">
-
-<h2>Designing High-Fidelity Rubrics for Standards-Based Systems: A Technical Framework for Rigor and Alignment</h2>
-
-<p>Standards-Based Grading (SBG) requires assessment instruments that transcend mere grading compliance to accurately reflect student mastery of complex learning objectives. The analytic rubric serves as the foundational artifact in this ecosystem, providing clear definitions of achievement quality across a predefined progression of learning. This report outlines the technical requirements and psychometric principles, drawing upon established research in educational measurement, necessary to design high-fidelity rubrics suitable for both educator use and computational analysis by an AI coaching model. The focus is strictly on maximizing construct validity and inter-rater reliability within the context of a 4-point proficiency scale.</p>
-
-<h3>Section 1: The Theoretical Case for Standards-Based Assessment Accuracy</h3>
-
-<h4>A. The Shift from Compliance to Competence (O'Connor and Schimmer)</h4>
-<p>The adoption of SBG mandates a fundamental shift away from traditional grading practices that often conflate academic achievement with non-cognitive factors such as effort, attendance, or timeliness. In SBG, the reporting mechanism must strictly focus on demonstrated learning mastery of standards, rather than simply reporting tasks completed.</p>
-<p>Assessment expert Ken O'Connor developed guidelines, including "15 fixes for broken grades," which fundamentally advocate for the systematic separation of evidence concerning academic achievement from process criteria (e.g., homework completion, classroom behavior). When these non-cognitive process criteria are factored into the academic grade, they contaminate the measurement of knowledge, introducing noise into the achievement data.</p>
-<p>Tom Schimmer emphasizes the need for educators to find their "Grading True North," challenging conventional practices where reporting mandates sometimes force compliance over accuracy. The objective of a high-fidelity rubric is to mitigate this pressure by ensuring that any score entered accurately relates exclusively to the student's mastery of the defined standard, establishing a defensible link between the observed performance and the reported achievement.</p>
-
-<h4>B. Quantifying the Risk of Inaccuracy and Misalignment</h4>
-<p>The consequences of inaccurate grading extend beyond classroom management, impacting systemic equity. Analysis of grading practices reveals a significant measurement problem: studies indicate a mismatch of up to 60% between teacher-assigned grades and student performance on standardized assessments. This substantial discrepancy often manifests as either grade inflation or grade depression. Crucially, grade inflation is reported more frequently among Black, Hispanic, and lower-income students when compared to other groups, leading to misalignment that can cause students to struggle in subsequent advanced courses.</p>
-<p>The core function of a rigorously designed SBG rubric is to enforce O'Connor's principle of separation, thereby rigorously eliminating Construct-Irrelevant Variance (CIv) by limiting criteria solely to observable evidence of achievement standards.</p>
-
-<h3>Section 2: Backward Design as the Rubric Blueprint</h3>
-
-<h4>A. Stage 1 and 2: Identifying Results and Evidence (Wiggins &amp; McTighe)</h4>
-<p>High-fidelity rubric development must be procedural, beginning with the Backward Design framework articulated by Wiggins and McTighe. This framework mandates starting with Stage 1: identifying desired results (the grade-level standard), followed by Stage 2: determining acceptable evidence (the assessment task and its rubric). This rigorous sequencing prevents instructional activities from dictating the criteria for success; instead, the standard dictates the criteria.</p>
-
-<h4>B. Designing Evidence to Elicit Understanding</h4>
-<p>To measure authentic achievement, assessment tasks must move beyond simple recall. Wiggins and McTighe define true student understanding through the Six Facets, including the ability to Explain, Interpret, and Apply knowledge. When designing assessments for higher-order thinking skills (HOTS), it is essential to utilize novel material - content that is new to the student and was not explicitly covered during instruction. This requirement prevents the assessment from inadvertently defaulting to measuring recall or rote memorization of classroom examples.</p>
-
-<h3>Section 3: Formalizing Rigor: Aligning Standards to Cognitive Complexity</h3>
-
-<h4>A. Resolving Measurement Overlap: DOK vs. Proficiency Scale</h4>
-<p>A precise understanding of cognitive complexity is vital. Both Webb's Depth of Knowledge (DOK) framework and the Marzano/Kendall Proficiency Scale employ a 1-4 numerical range to denote sophistication. However, their constructs differ: DOK measures the inherent cognitive complexity of the task itself, whereas the Marzano scale measures the student's demonstrated mastery level on the standard. Rigorous assessment design must systematically distinguish between level of difficulty (easy versus hard) and level of thinking (lower-order thinking or recall versus higher-order thinking), controlling for each independently.</p>
-
-<h4>B. Defining Level 3.0 (Proficient) and Engineering Level 4.0 Rigor</h4>
-<p>The foundation of the SBG rubric is the definition of Level 3.0, which signifies Grade-Level Proficiency or "Meets Standard". Defining Level 4.0 (Exceeds Standard) requires careful calibration to ensure it represents a meaningful extension of learning, not simply more work. Level 4.0 must integrate higher cognitive demands, often DOK 3 (Strategic Thinking) or DOK 4 (Extended Thinking). If Level 4.0 is defined only by quantity (e.g., "uses three facts") rather than qualitative complexity (e.g., "justifies the choice of facts using sophisticated evidence"), it fails the rigor test by rewarding volume or effort over genuine intellectual performance.</p>
-
-<h3>Section 4: Deconstruction and Clarity: Unpacking Standards into Measurable Criteria</h3>
-
-<h4>A. Unwrapping for Granularity and Precision</h4>
-<p>The technical construction of the rubric begins with the meticulous deconstruction, or "unwrapping," of the grade-level standard. Unpacking systematically identifies the dual components of the standard: 1) Key Concepts/Knowledge, represented by the nouns or noun phrases (the "Know" component), and 2) Skills/Abilities, represented by the action verbs (the "Be Able to Do" component). These identified components become the discrete, distinct evaluative criteria for the analytic rubric.</p>
-
-<h4>B. Clarity Through Learning Targets (Chappuis)</h4>
-<p>Following deconstruction, the standard's components must be translated into clear, student-friendly learning targets, often expressed as "I can" statements. Jan Chappuis emphasizes that clarity of content standards is essential for accurate assessment and effective shared communication between teachers and students. Granular, criteria-based feedback is a core requirement of SBG; feedback must be provided by standard, not by overall assignment grade.</p>
-
-<h3>Section 5: Psychometric Principles of High-Quality Rubric Design (Brookhart)</h3>
-
-<h4>A. Validity, Reliability, and Usability Requirements</h4>
-<p>Assessment expert Susan Brookhart highlights four evidence-informed principles governing rubric design: criterion alignment, clear measurable language, usability, and psychometric quality (validity and reliability). Structurally, a high-quality rubric must balance detail with practicality, typically limited to 5-7 criteria and 3-5 performance levels.</p>
-
-<h4>B. The Necessity of Observable, Objective Language</h4>
-<p>The most critical principle for ensuring reliability is the use of objective, observable language in the Performance Level Descriptions. Subjective qualifiers, such as "excellent use of grammar," "competent," or "poorly," introduce inherent ambiguity and significantly degrade Inter-Rater Reliability. Brookhart advocates for replacing "Excellent use of grammar" with "Only one or two grammatical errors are present in the paper". Critically, the descriptors must define performance levels based on qualitative differences that reflect genuine developmental progression, not merely quantitative accumulation of facts or points.</p>
-
-<h3>Section 6: Engineering Performance Level Descriptions (PLDs) for the Marzano Scale</h3>
-<p>The 4-point proficiency scale serves as a formalized, structured learning progression, making the rubric highly valuable for diagnosis and instructional alignment. Level 2.0 (Approaching/Developing) represents the prerequisite knowledge and simpler processes necessary for the grade-level standard. Level 3.0 (Proficient/Meets Standard) is the target achievement level, reflecting consistent, independent execution of the grade-level expectation. Level 4.0 (Advanced/Exceeds Standards) requires genuine intellectual extension, defined as mastery of the Level 3.0 standard combined with the ability to apply skills in complex, authentic, and advanced contexts.</p>
-
-<h3>Section 7: Validation, Implementation Fidelity, and AI Integration</h3>
-<p>The final step in rubric development is validation against research-backed criteria to ensure high quality and equity. Validation confirms that the final rubric possesses high alignment (it measures the standard) and high reliability (it yields consistent scoring). High-fidelity rubric design is only effective when implemented with fidelity across the organization. Inconsistent implementation of agreed-upon SBG non-negotiables is cited as a major organizational failure. A standardized, high-quality rubric serves as the core operational blueprint that enforces consistent achievement expectations across courses and grade levels.</p>
-<p>The AI coaching model must function as a measurement quality controller. Its automated audit functions should verify the criteria against known standards and rigor requirements, flagging potential flaws in DOK mapping or criteria distinction. By providing standardized, data-driven feedback on rubric construction, the AI model ensures consistent implementation of SBG tenets across an institution.</p>
-
-          </div>
-        </div>
-      </details>
-
-    </div>
-  </section>
-
+  <!-- Zone 4 removed — showcase content is now in the teaser expandable above -->
   <!-- Footer -->
   <footer class="site-footer">
     <p>Designed for AI Literacy and Pedagogical Innovation.</p>

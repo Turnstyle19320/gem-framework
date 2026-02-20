@@ -75,15 +75,18 @@ h1, h2, h3, h4 { line-height: 1.2; }
 }
 
 /* ==========================================
-   ZONE 2 — Teaser
+   ZONE 2 — Teaser (expandable showcase)
    ========================================== */
 .zone-teaser {
-  max-width: 800px;
+  max-width: 900px;
   margin: -20px auto 48px;
   padding: 0 24px;
   position: relative;
   z-index: 2;
 }
+.zone-teaser details { border: none; }
+.zone-teaser details summary { list-style: none; }
+.zone-teaser details summary::-webkit-details-marker { display: none; }
 .teaser-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -102,6 +105,12 @@ h1, h2, h3, h4 { line-height: 1.2; }
   transform: translateY(-2px);
   box-shadow: 0 24px 30px -8px rgb(0 0 0 / .12);
 }
+.teaser-chevron {
+  flex-shrink: 0;
+  opacity: .4;
+  transition: transform .2s;
+}
+details[open] .teaser-chevron { transform: rotate(180deg); }
 .teaser-icon {
   width: 48px;
   height: 48px;
@@ -123,6 +132,15 @@ h1, h2, h3, h4 { line-height: 1.2; }
   margin: 0;
   font-size: 14px;
   color: var(--muted);
+}
+.teaser-body {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  padding: 32px;
+  margin-top: -12px;
+  box-shadow: var(--shadow-md);
 }
 
 /* ==========================================
@@ -525,7 +543,7 @@ body.guided-mode .guided-nav { display: flex; }
   text-transform: uppercase; color: var(--muted);
   margin-bottom: 10px; letter-spacing: .04em;
 }
-.role-card p { font-size: 14px; margin: 0; color: #475569; flex-grow: 1; }
+.role-card p { font-size: 14px; margin: 0; color: #475569; }
 .role-card ul { padding-left: 16px; margin-top: 14px; font-size: 13px; color: #334155; }
 .role-card li { margin-bottom: 5px; }
 .role-card .example-prompt {

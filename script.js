@@ -174,15 +174,7 @@
       });
     });
 
-    // Teaser card click scrolls to showcase
-    const teaser = document.querySelector('.teaser-card');
-    if (teaser) {
-      teaser.addEventListener('click', e => {
-        e.preventDefault();
-        const showcase = document.getElementById('showcase');
-        if (showcase) showcase.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    }
+    // Teaser is now a native <details> element — no JS needed for expand
   }
 
   // ===================================================
