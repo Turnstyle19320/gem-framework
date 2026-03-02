@@ -228,76 +228,6 @@
     });
   }
 
-  // ===================================================
-  // 7. Gem starter (from Idea Library query param)
-  // ===================================================
-  const GEM_DATA = {
-    'observation-feedback': {
-      name: 'Observation Feedback Coach',
-      desc: 'Problem: principals give generic post-observation feedback. Role: Coach — helps write specific, actionable feedback tied to a teaching framework. Think about what evidence-based feedback protocol you want to enforce.'
-    },
-    'assessment-design': {
-      name: 'Assessment Design Coach',
-      desc: 'Problem: assessments don\'t match what was taught or test at the wrong depth. Role: Coach — walks teachers through building aligned assessments. Think about what DOK levels matter for your context.'
-    },
-    'data-conversations': {
-      name: 'Data Conversation Facilitator',
-      desc: 'Problem: teams look at data but don\'t know what to do with it. Role: Coach — facilitates structured data analysis protocols. Think about what data sources your teams actually use.'
-    },
-    'iep-goals': {
-      name: 'IEP Goal Writer',
-      desc: 'Problem: IEP goals are vague, unmeasurable, or disconnected from grade-level standards. Role: Coach — guides sped teachers through compliant, meaningful goal writing. Think about what compliance frameworks matter in your district.'
-    },
-    'behavior-intervention': {
-      name: 'Behavior Intervention Coach',
-      desc: 'Problem: behavior plans are reactive and punitive instead of function-based. Role: Coach — helps design FBAs and BIPs grounded in PBIS. Think about what restorative practices your district uses.'
-    },
-    '504-advisor': {
-      name: '504 Accommodation Advisor',
-      desc: 'Problem: teams default to the same accommodations regardless of the actual barrier. Role: Colleague — helps match accommodations to specific disability impacts. Think about what common accommodation pitfalls you see.'
-    },
-    'school-improvement': {
-      name: 'School Improvement Plan Coach',
-      desc: 'Problem: SIPs are compliance documents instead of actionable improvement tools. Role: Coach — enforces root cause analysis and SMART goal discipline. Think about what data your principals actually have access to.'
-    },
-    'equity-auditor': {
-      name: 'Equity Policy Auditor',
-      desc: 'Problem: policies have disparate impact even when intent is neutral. Role: Coach — examines policies through an equity lens. Think about what specific policies or data patterns concern you.'
-    },
-    'strategic-comms': {
-      name: 'Strategic Communication Coach',
-      desc: 'Problem: leaders struggle to communicate sensitive decisions transparently. Role: Colleague — helps draft communications that acknowledge, explain, and invite dialogue. Think about what recurring communication challenges you face.'
-    },
-    'pd-designer': {
-      name: 'PD Session Designer',
-      desc: 'Problem: PD is sit-and-get with no application or engagement. Role: Coach — builds sessions grounded in adult learning theory. Think about what PD format constraints you have (time, audience, delivery).'
-    },
-    'coaching-conversations': {
-      name: 'Coaching Conversation Coach',
-      desc: 'Problem: instructional coaches default to telling instead of asking. Role: Coach — helps prepare and reflect on coaching conversations. Think about what coaching model your district uses (cognitive coaching, Jim Knight, etc.).'
-    },
-    'differentiation': {
-      name: 'Differentiation Planning Coach',
-      desc: 'Problem: "differentiation" means giving some kids more work and others less. Role: Coach — helps plan tiered instruction that adjusts complexity, not quantity. Think about what content areas and grade levels you\'re targeting.'
-    }
-  };
-
-  function initGemStarter() {
-    const params = new URLSearchParams(window.location.search);
-    const gemId = params.get('gem');
-    if (!gemId || !GEM_DATA[gemId]) return;
-
-    const gem = GEM_DATA[gemId];
-    const starter = document.getElementById('gem-starter');
-    const nameEl = document.getElementById('gem-starter-name');
-    const descEl = document.getElementById('gem-starter-desc');
-
-    if (starter && nameEl && descEl) {
-      nameEl.textContent = gem.name;
-      descEl.textContent = gem.desc;
-      starter.classList.add('visible');
-    }
-  }
 
   // ===================================================
   // Init everything on DOM ready
@@ -314,7 +244,7 @@
       initScrollSpy();
       initGuidedMode();
       initSidebarNav();
-      initGemStarter();
+
     }
   });
 

@@ -393,18 +393,7 @@ h1, h2, h3, h4 { line-height: 1.2; }
   line-height: 1.5;
   font-weight: 500;
 }
-.library-build-link {
-  display: inline-block;
-  margin-top: 12px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--brand);
-  text-decoration: none;
-  transition: color .15s;
-}
-.library-build-link:hover {
-  color: var(--brand-dark);
-}
+
 
 /* Domain grid */
 .domain-grid {
@@ -512,42 +501,7 @@ h1, h2, h3, h4 { line-height: 1.2; }
   font-weight: 500;
 }
 
-/* Gem starter callout (from Idea Library) */
-.gem-starter {
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-  border-radius: var(--radius);
-  padding: 20px 24px;
-  margin-bottom: 24px;
-  display: none;
-}
-.gem-starter.visible { display: block; }
-.gem-starter-title {
-  font-size: 14px;
-  font-weight: 800;
-  color: #1e40af;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  margin: 0 0 8px;
-}
-.gem-starter p {
-  font-size: 15px;
-  color: #1e3a5f;
-  margin: 0;
-  line-height: 1.6;
-}
-.gem-starter-dismiss {
-  appearance: none;
-  background: none;
-  border: none;
-  color: #64748b;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0;
-  margin-top: 8px;
-}
-.gem-starter-dismiss:hover { color: var(--ink); }
+
 
 /* SBG callout example */
 .callout-example {
@@ -1271,10 +1225,8 @@ kbd {
   .copy-overlay,
   .btn-ghost,
   .site-footer,
-  .gem-starter-dismiss,
   .hero-scroll-link,
-  .cta-btn,
-  .library-build-link { display: none !important; }
+  .cta-btn { display: none !important; }
 
   /* Simplify hero */
   .zone-hero {
